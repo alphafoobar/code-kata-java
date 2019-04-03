@@ -1,4 +1,4 @@
-package kata02;
+package nz.kata02;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -18,11 +18,11 @@ class BinarySearchTest {
     @Test
     @DisplayName("Single item array")
     void easyScenarios() {
-        int[] a = {1};
+        int[] ints = {1};
 
-        assertThat(search.chop(3, a)).isEqualTo(-1);
+        assertThat(search.chop(3, ints)).isEqualTo(-1);
 
-        assertThat(search.chop(1, a)).isEqualTo(0);
+        assertThat(search.chop(1, ints)).isEqualTo(0);
     }
 
     @Test

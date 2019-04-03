@@ -1,20 +1,21 @@
-package kata02;
+package nz.kata02;
 
 import static java.util.Arrays.copyOfRange;
 
-public class BinarySearch {
+class BinarySearch {
 
-    public int chop(int key, int[] array) {
+    int chop(int key, int[] array) {
         return chop(key, array, 0);
     }
 
-    public int chop(int key, int[] array, int offset) {
+    private int chop(int key, int[] array, int offset) {
         if (array.length == 0) {
             return -1;
         }
         if (array.length == 1) {
             return array[0] == key ? offset : -1;
         }
+
         int midPoint = Math.min(array.length - 1, array.length / 2);
         if (array[midPoint] == key) {
             return offset + midPoint;
