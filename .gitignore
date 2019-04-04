@@ -95,4 +95,3 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
-/gradle/wrapper/gradle-wrapper.jar
