@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/alphafoobar/code-kata-java.svg?branch=master)](https://travis-ci.com/alphafoobar/code-kata-java) [![codecov](https://codecov.io/gh/alphafoobar/code-kata-java/branch/master/graph/badge.svg)](https://codecov.io/gh/alphafoobar/code-kata-java)
+[![Build Status](https://travis-ci.com/alphafoobar/code-kata-java.svg?branch=master)](https://travis-ci.com/alphafoobar/code-kata-java) [![codecov](https://codecov.io/gh/alphafoobar/code-kata-java/branch/master/graph/badge.svg)](https://codecov.io/gh/alphafoobar/code-kata-java)[![Known Vulnerabilities](https://snyk.io/test/github/alphafoobar/code-kata-java/badge.svg)](https://snyk.io/test/github/alphafoobar/code-kata-java)
 
 # Code Kata - Java! 
 
