@@ -4,7 +4,7 @@ import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-class FootballData {
+class FootballData implements Data {
 
     private static final Pattern split
         = Pattern.compile("\\s+\\d{1,2}\\.\\s+(\\w+)\\s+\\d{1,2}\\s+\\d{1,2}\\s+\\d{1,2}\\s+\\d{1,2}\\s+(\\d{1,2})\\s+-\\s+(\\d{1,2})\\s+\\d+");
@@ -28,6 +28,14 @@ class FootballData {
             return Optional.of(new FootballData(name, goalsFor, goalsAgainst));
         }
         return Optional.empty();
+    }
+
+    public String label() {
+        return getName();
+    }
+
+    public int difference() {
+        return Math.abs(goalsFor - goalsAgainst);
     }
 
     String getName() {

@@ -4,7 +4,7 @@ import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-class WeatherData {
+class WeatherData implements Data {
 
     private static final Pattern split = Pattern.compile("\\s+(\\d+)\\s+(\\d+)\\*?\\s+(\\d+)");
 
@@ -27,6 +27,14 @@ class WeatherData {
             return Optional.of(new WeatherData(day, min, max));
         }
         return Optional.empty();
+    }
+
+    public String label() {
+        return Integer.toString(day);
+    }
+
+    public int difference() {
+        return Math.abs(max - min);
     }
 
     int getDay() {

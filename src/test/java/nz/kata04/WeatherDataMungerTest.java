@@ -16,7 +16,7 @@ class WeatherDataMungerTest {
     @DisplayName("Empty set")
     void smallestEmpty() {
         WeatherDataMunger munger = newWeatherDataMunger(emptyList());
-        assertThat(munger.smallestSpread()).isEqualTo(-1);
+        assertThat(munger.smallestDifference()).isEqualTo("");
     }
 
     @Test
@@ -24,7 +24,7 @@ class WeatherDataMungerTest {
     void smallestFromOne() {
         String line = "   1  88    59    74          53.8       0.00 F       280  9.6 270  17  1.6  93 23 1004.5";
         WeatherDataMunger munger = newWeatherDataMunger(singletonList(line));
-        assertThat(munger.smallestSpread()).isEqualTo(1);
+        assertThat(munger.smallestDifference()).isEqualTo("1");
     }
 
     @Test
@@ -35,7 +35,7 @@ class WeatherDataMungerTest {
             "   2  60    59    74          53.8       0.00 F       280  9.6 270  17  1.6  93 23 1004.5"
         );
         WeatherDataMunger munger = newWeatherDataMunger(lines);
-        assertThat(munger.smallestSpread()).isEqualTo(2);
+        assertThat(munger.smallestDifference()).isEqualTo("2");
     }
 
     @Test
@@ -47,7 +47,7 @@ class WeatherDataMungerTest {
             "   3  61    59    74          53.8       0.00 F       280  9.6 270  17  1.6  93 23 1004.5"
         );
         WeatherDataMunger munger = newWeatherDataMunger(lines);
-        assertThat(munger.smallestSpread()).isEqualTo(2);
+        assertThat(munger.smallestDifference()).isEqualTo("2");
     }
 
     @Test
@@ -55,6 +55,6 @@ class WeatherDataMungerTest {
     void smallestFromFile() {
         List<String> lines = DataReader.readData("/weather.dat");
         WeatherDataMunger munger = newWeatherDataMunger(lines);
-        assertThat(munger.smallestSpread()).isEqualTo(14);
+        assertThat(munger.smallestDifference()).isEqualTo("14");
     }
 }
