@@ -3,7 +3,6 @@ package nz.kata04;
 import static nz.kata04.WeatherData.newWeatherData;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 class WeatherDataMunger {
@@ -12,10 +11,6 @@ class WeatherDataMunger {
 
     private WeatherDataMunger(List<WeatherData> list) {
         this.list = List.copyOf(list);
-    }
-
-    static WeatherDataMunger newWeatherDataMunger(String... lines) {
-        return new WeatherDataMunger(listOfWeather(Arrays.asList(lines)));
     }
 
     static WeatherDataMunger newWeatherDataMunger(List<String> lines) {

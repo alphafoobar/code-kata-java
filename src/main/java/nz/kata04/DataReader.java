@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import javax.annotation.Nonnull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +16,7 @@ public interface DataReader {
 
     Logger logger = LoggerFactory.getLogger(DataReader.class);
 
-    static List<String> readData(String dataFile) {
+    static List<String> readData(@Nonnull String dataFile) {
         List<String> list = new ArrayList<>();
 
         int row = 0;
@@ -27,14 +28,14 @@ public interface DataReader {
                 }
             }
             return list;
-        } catch (IOException exception) {
+        } catch (NullPointerException | IOException exception) {
             logger.warn("Couldn't load data [file=\"{}\"]", dataFile, exception);
         }
 
         return Collections.emptyList();
     }
 
-    static BufferedReader newReader(String weatherFile) {
+    static BufferedReader newReader(@Nonnull String weatherFile) {
         return new BufferedReader(new InputStreamReader(DataReader.class.getResourceAsStream(weatherFile), UTF_8));
     }
 }
