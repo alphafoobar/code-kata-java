@@ -2,10 +2,13 @@
 
 # Code Kata - Java! 
 
-Based on code-kata
+Based on code-kata. Check out the solutions branch for solutions for each Kata.
 
-Check out the solutions branch for solutions for each Kata.
+## How-to build and test
 
+```bash
+./gradlew check
+```
 ---
 
 # Java
