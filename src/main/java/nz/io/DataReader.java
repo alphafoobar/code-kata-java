@@ -1,4 +1,4 @@
-package nz.kata04;
+package nz.io;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -35,7 +35,7 @@ public interface DataReader {
         return Collections.emptyList();
     }
 
-    static BufferedReader newReader(@Nonnull String weatherFile) {
-        return new BufferedReader(new InputStreamReader(DataReader.class.getResourceAsStream(weatherFile), UTF_8));
+    static BufferedReader newReader(@Nonnull String file) {
+        return new BufferedReader(new InputStreamReader(DataReader.class.getResourceAsStream(file), UTF_8));
     }
 }

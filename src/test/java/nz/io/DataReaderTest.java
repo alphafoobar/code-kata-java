@@ -1,7 +1,7 @@
-package nz.kata04;
+package nz.io;
 
 import static java.util.Collections.emptyList;
-import static nz.kata04.DataReader.readData;
+import static nz.io.DataReader.readData;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.DisplayName;
