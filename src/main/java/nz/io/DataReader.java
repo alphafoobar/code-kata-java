@@ -2,6 +2,7 @@ package nz.io;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
+import com.google.common.flogger.FluentLogger;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,12 +10,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.annotation.Nonnull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public interface DataReader {
 
-    Logger logger = LoggerFactory.getLogger(DataReader.class);
+    FluentLogger logger = FluentLogger.forEnclosingClass();
 
     static List<String> readData(@Nonnull String dataFile) {
         List<String> list = new ArrayList<>();
@@ -28,8 +27,8 @@ public interface DataReader {
                 }
             }
             return list;
-        } catch (NullPointerException | IOException exception) {
-            logger.warn("Couldn't load data [file=\"{}\"]", dataFile, exception);
+        } catch (NullPointerException | IOException cause) {
+            logger.atWarning().withCause(cause).log("Couldn't load data [file=\"%s\"]", dataFile);
         }
 
         return Collections.emptyList();
