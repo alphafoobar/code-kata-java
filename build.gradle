@@ -53,18 +53,13 @@ test {
 }
 
 dependencies {
-    implementation group: 'com.google.guava', name: 'guava', version: '27.1-jre'
+    implementation group: 'com.google.guava', name: 'guava', version: '28.2-jre'
     implementation group: 'com.github.spotbugs', name: 'spotbugs-annotations', version: '4.0.0'
     implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
 
-    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.2.0'
-    testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.21.0'
-    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.11.0'
+    testImplementation group: 'com.google.guava', name: 'guava-testlib', version: '28.2-jre'
 
-    testImplementation group: 'com.google.guava', name: 'guava-testlib', version: '27.1-jre'
-
-    // Remove once Mockito 3.x gets released with Junit 5 support
-    testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '2.23.0'
-
-    testRuntime group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.2.0'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.5.2'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.14.0'
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '3.1.0'
 }
