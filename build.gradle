@@ -1,16 +1,14 @@
-import com.github.spotbugs.SpotBugsTask
-
 plugins {
     id 'java'
     id 'jacoco'
     id 'checkstyle'
-    id "com.github.spotbugs" version "1.7.1"
+    id "com.github.spotbugs" version "4.0.1"
 }
 
 version = '0.0.1-SNAPSHOT'
 
-sourceCompatibility = 11
-targetCompatibility = 11
+sourceCompatibility = JavaVersion.VERSION_13
+targetCompatibility = JavaVersion.VERSION_13
 
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
@@ -20,22 +18,15 @@ repositories {
 }
 
 spotbugs {
-    toolVersion = '3.1.12'
+    toolVersion.set('4.0.0')
 }
 
 jacoco {
-    toolVersion = "0.8.3"
+    toolVersion = "0.8.4"
 }
 
 checkstyle {
-    toolVersion '8.16'
-}
-
-tasks.withType(SpotBugsTask) {
-    reports {
-        xml.enabled = false
-        html.enabled = true
-    }
+    toolVersion '8.23'
 }
 
 jacocoTestReport {
@@ -63,7 +54,7 @@ test {
 
 dependencies {
     implementation group: 'com.google.guava', name: 'guava', version: '27.1-jre'
-    implementation group: 'com.github.spotbugs', name: 'spotbugs-annotations', version: '3.1.12'
+    implementation group: 'com.github.spotbugs', name: 'spotbugs-annotations', version: '4.0.0'
     implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
 
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.2.0'
@@ -71,9 +62,9 @@ dependencies {
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.11.0'
 
     testImplementation group: 'com.google.guava', name: 'guava-testlib', version: '27.1-jre'
-    
+
     // Remove once Mockito 3.x gets released with Junit 5 support
     testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '2.23.0'
-    
+
     testRuntime group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.2.0'
 }
