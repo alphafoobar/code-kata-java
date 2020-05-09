@@ -16,11 +16,9 @@ class WeatherDataTest {
         Optional<WeatherData> optional = newWeatherData(line);
         assertThat(optional.isPresent()).isTrue();
 
-        if (optional.isPresent()) {
-            WeatherData data = optional.get();
-            assertThat(data.getDay()).isEqualTo(1);
-            assertThat(data.getMax()).isEqualTo(88);
-            assertThat(data.getMin()).isEqualTo(59);
-        }
+        WeatherData data = optional.get();
+        assertThat(data.getDay()).isEqualTo(1);
+        assertThat(data.getMax()).isEqualTo(88);
+        assertThat(data.getMin()).isEqualTo(59);
     }
 }

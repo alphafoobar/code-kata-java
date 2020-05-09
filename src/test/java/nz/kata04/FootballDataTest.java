@@ -16,11 +16,9 @@ class FootballDataTest {
         Optional<FootballData> optional = newFootballData(line);
         assertThat(optional.isPresent()).isTrue();
 
-        if (optional.isPresent()) {
-            FootballData data = optional.get();
-            assertThat(data.getName()).isEqualTo("Arsenal");
-            assertThat(data.getGoalsFor()).isEqualTo(79);
-            assertThat(data.getGoalsAgainst()).isEqualTo(36);
-        }
+        FootballData data = optional.get();
+        assertThat(data.getName()).isEqualTo("Arsenal");
+        assertThat(data.getGoalsFor()).isEqualTo(79);
+        assertThat(data.getGoalsAgainst()).isEqualTo(36);
     }
 }
