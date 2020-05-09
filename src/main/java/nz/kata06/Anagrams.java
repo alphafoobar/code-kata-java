@@ -22,25 +22,25 @@ public class Anagrams {
         return dictionary;
     }
 
-    private static String normalize(String s) {
-        var newChars = new char[s.length()];
-        var chars = s.toLowerCase().toCharArray();
-        int i = 0;
+    private static String normalize(String word) {
+        var newChars = new char[word.length()];
+        var chars = word.toLowerCase().toCharArray();
+        int count = 0;
         for (char c : chars) {
             if (Character.isAlphabetic(c) || Character.isDigit(c)) {
-                newChars[i++] = c;
+                newChars[count++] = c;
             }
         }
-        Arrays.sort(newChars, 0, i);
-        return new String(newChars, 0, i);
+        Arrays.sort(newChars, 0, count);
+        return new String(newChars, 0, count);
     }
 
-    private void addWord(String s) {
-        String normalized = normalize(s);
-        words.computeIfAbsent(normalized, w -> new HashSet<>()).add(s);
+    private void addWord(String word) {
+        String normalized = normalize(word);
+        words.computeIfAbsent(normalized, w -> new HashSet<>()).add(word);
     }
 
-    public Set<String> find(String s) {
-        return words.get(normalize(s));
+    public Set<String> find(String word) {
+        return words.get(normalize(word));
     }
 }
